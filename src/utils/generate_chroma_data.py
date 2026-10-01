@@ -4,15 +4,19 @@ import chromadb
 from google.colab import drive
 import os
 
-# 1. Mount Google Drive to access persistent storage
-# This will prompt you to authorize Google Drive access in Colab
-drive.mount('/content/drive')
+import sys
+
+try:
+    # Works if running as a saved script
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+except NameError:
+    # Fallback if running in a notebook, REPL, or executable freeze
+    PROJECT_ROOT = os.getcwd() 
 
 # 1. Setup Storage Paths
-PROJECT_DIR = "/content/drive/MyDrive/capstone_project/storage/"
 
-db_path = os.path.join(PROJECT_DIR, "capstone.db")
-chroma_path = os.path.join(PROJECT_DIR, "chroma_db")
+db_path = os.path.join(PROJECT_ROOT, "storage", "capstone.db")
+chroma_path = os.path.join(PROJECT_ROOT, "storage", "chroma_db")
 
 if not os.path.exists(db_path):
     raise FileNotFoundError(f"Missing SQLite file at {db_path}. Run your SQL script first.")

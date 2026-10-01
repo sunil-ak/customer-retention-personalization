@@ -4,6 +4,16 @@ from datetime import datetime, timedelta
 from faker import Faker
 import os # Import the os module for file operations
 
+import os
+import sys
+
+try:
+    # Works if running as a saved script
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+except NameError:
+    # Fallback if running in a notebook, REPL, or executable freeze
+    PROJECT_ROOT = os.getcwd() 
+
 # Initialize Faker and random seeds for deterministic, repeatable generation
 fake = Faker()
 Faker.seed(42)
@@ -13,8 +23,10 @@ sql_conn = None # Initialize to None
 
 try:
     # --- Start: Fix for 'database is locked' error ---
-    db_file = "/content/drive/MyDrive/capstone_project/capstone.db"
-    db_journal_file = "/content/drive/MyDrive/capstone_project/capstone.db-journal"
+
+
+    db_file = os.path.join(PROJECT_ROOT, "storage", "capstone.db")
+    db_journal_file = os.path.join(PROJECT_ROOT, "storage", "capstone.db-journal")
 
     # Remove existing database files to ensure a clean start and prevent locking issues
     if os.path.exists(db_file):

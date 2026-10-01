@@ -12,13 +12,18 @@ if 'engine' in locals(): del engine
 gc.collect()
 torch.cuda.empty_cache()
 
+try:
+    # Works if running as a saved script
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+except NameError:
+    # Fallback if running in a notebook, REPL, or executable freeze
+    PROJECT_ROOT = os.getcwd() 
+
 import sys
 # Replace this with the actual folder path you copied
 sys.path.append('/content/drive/MyDrive/capstone_project/')
 
-!pip install langchain_huggingface
-!pip install chromadb
-!pip install -U bitsandbytes>=0.46.1
+
 
 import os
 import json
@@ -41,8 +46,8 @@ class RetentionEngine:
 
 
 
-    sql_db_path ='/content/drive/MyDrive/capstone_project/storage/capstone.db'
-    chroma_path = "/content/drive/MyDrive/capstone_project/storage/chroma_db"
+    sql_db_path =os.path.join(PROJECT_ROOT, "storage", "capstone.db")
+    chroma_path = os.path.join(PROJECT_ROOT, "storage", "chroma_db")
 
     def __init__(self, model_id: str = "Qwen/Qwen2.5-7B-Instruct"):
         """
@@ -216,8 +221,8 @@ class RetentionEngine:
         return results_summary
 
 # 1. Initialize your DB drivers once at the root level
-sql_db_path = "/content/drive/MyDrive/capstone_project/storage/capstone.db"
-chroma_path = "/content/drive/MyDrive/capstone_project/storage/chroma_db"
+sql_db_path =os.path.join(PROJECT_ROOT, "storage", "capstone.db")
+chroma_path = os.path.join(PROJECT_ROOT, "storage", "chroma_db")
 shared_orchestrator = CustomerDataOrchestrator(sql_db_path, chroma_path)
 
 # 2. Instantiate the engine once (Locks model to VRAM)
@@ -242,7 +247,7 @@ conn.close()
 batch_log = engine.run_batch_processing(
     customer_ids=target_customers,
     data_orchestrator=shared_orchestrator,
-    output_dir="/content/drive/MyDrive/capstone_project/aep_payloads",
+    output_dir=os.path.join(PROJECT_ROOT, "storage", "aep_payloads"),
     max_workers=4  # ⚡ Controlled concurrency limit
 )
 
