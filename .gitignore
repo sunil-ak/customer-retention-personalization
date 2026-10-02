@@ -4,3 +4,6 @@ storage/*.db
 storage/*.db-journal
 storage/*.db-wal
 storage/aep_payload/s
+.DS_Store
+.DS_Store?
+._*
