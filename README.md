@@ -8,7 +8,8 @@ The platform ingests fragmented, multi-source enterprise data logs (relational p
 
 ### 🗺️ Data Ingestion & Processing Architecture Flow
 
-![alt text](<Screenshot 2026-10-02 at 11.11.01 AM.png>)
+<img width="898" height="1047" alt="Screenshot 2026-10-02 at 11 11 01 AM" src="https://github.com/user-attachments/assets/b8a44a80-57cb-4efd-84ca-3035529a4140" />
+
 
 ---
 
@@ -88,16 +89,17 @@ To run this pipeline portably across cloud containers or local desktop machines,
 
 ## 🎛️ Platform Workspace Interface Cockpit
 
-![Executive Aggregated Analytics](storage/screenshot_tab1.png)
 
+### 🎯 Executive Aggregated Analytics
+---
+<img width="1939" height="924" alt="Screenshot 2026-10-02 at 12 41 43 PM" src="https://github.com/user-attachments/assets/c5c03497-fae9-464b-b693-39a221617ff2" />
 
-![alt text](<Screenshot 2026-10-02 at 12.41.43 PM.png>)
+### 🎯 Operational Profile Ingestion Layer
+---
+<img width="1937" height="588" alt="Screenshot 2026-10-02 at 12 44 14 PM" src="https://github.com/user-attachments/assets/b3fbea5b-7838-4d8f-bd99-970f75ac3b46" />
 
-![Operational Profile Ingestion Layer](storage/screenshot_tab1.png)
+### 🎯 Cross Model Data Governance Audit
+---
+<img width="1931" height="475" alt="Screenshot 2026-10-02 at 12 46 22 PM" src="https://github.com/user-attachments/assets/a49bc4a5-8746-4ef4-95be-30a233312b03" />
 
-![alt text](<Screenshot 2026-10-02 at 12.44.14 PM.png>)
-
-![Cross Model Data Governance Audit](storage/screenshot_tab1.png)
-
-![alt text](<Screenshot 2026-10-02 at 12.46.22 PM.png>)
 
