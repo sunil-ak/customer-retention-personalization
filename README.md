@@ -1,4 +1,18 @@
 # 🏢 Enterprise Customer Retention Engine (`customer-retention-personalization`)
+
+
+## 🎯 The Enterprise Business Problem
+While the **Adobe Experience Platform (AEP)** is an industry leader in stitching structured, deterministic customer profile data (such as transactions and web clickstreams), **AEP does not natively store, parse, or extract real-time insights from raw, unstructured textual data logs**—such as multi-paragraph customer reviews, call center transcripts, or support ticket text walls. 
+
+Because this unstructured textual data contains the most immediate signals of consumer frustration, enterprises face a critical visibility gap. Traditional batch ETL processes are too slow to extract these indicators, leading to lagging churn analytics and missed opportunities for real-time personalization.
+
+## 🚀 Our Architectural Value Add
+This platform acts as an **Intelligent Pre-Ingestion Processing Layer** designed to bridge this exact enterprise gap. 
+
+Our microservice architecture securely ingests raw, unstructured textual data locally, routes it through an asynchronous multi-threaded local inference pipeline, and maps the extracted analytics directly into standard, streaming-compliant **Adobe XDM schemas**. By converting unstructured text into structured enterprise data before it hits the network, we enable AEP to immediately trigger real-time, personalized retention journeys downstream.
+
+---
+
 > **An asynchronous, resource-aware AI data pipeline mapping multi-source transactional context to streaming-ready Adobe XDM schemas with uncoupled cross-model compliance auditing.**
 
 ---
