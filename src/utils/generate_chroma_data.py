@@ -1,7 +1,6 @@
 import sqlite3
 import random
 import chromadb
-from google.colab import drive
 import os
 
 import sys

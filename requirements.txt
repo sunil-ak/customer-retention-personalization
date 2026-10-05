@@ -1,3 +1,4 @@
 chromadb
 langchain-huggingface
 bitsandbytes>=0.46.1
+faker
