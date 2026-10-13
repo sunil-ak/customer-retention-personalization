@@ -133,12 +133,12 @@ class RetentionEngine:
             print("Start - Chain Invoke Command")
             # Step A: Compile footprint from DB files
             data_context = data_orchestrator.get_clean_customer_story(customer_id)
-            print(f"customer_data_json : {json.dumps(data_context)}")
+            #print(f"customer_data_json : {json.dumps(data_context)}")
 
 
             iso_now = datetime.utcnow().isoformat() + "Z"
 
-            print(f"format_instructions : {self.parser.get_format_instructions()}")
+            #print(f"format_instructions : {self.parser.get_format_instructions()}")
 
 
             # Step B: Direct invocation over the native chain
@@ -147,7 +147,7 @@ class RetentionEngine:
                 "customer_data_json": json.dumps(data_context)
             })
 
-            print(f"validated xdm payload : {validated_xdm_payload.dict()}")
+            #print(f"validated xdm payload : {validated_xdm_payload.dict()}")
 
             llm_insights = validated_xdm_payload.dict()
 
@@ -159,7 +159,7 @@ class RetentionEngine:
                 iso_now=iso_now
             )
 
-            print(f"final xdm payload : {final_aep_payload}")
+            #print(f"final xdm payload : {final_aep_payload}")
 
             return {
                 "customer_id": customer_id,
